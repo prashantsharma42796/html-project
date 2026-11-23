@@ -1,0 +1,100 @@
+/* ===== Basic setup ===== */
+* { box-sizing: border-box; }
+
+body {
+  font-family: Verdana, Arial, sans-serif;
+  background-color: #fafaf7;
+  color: #1f2a44;
+  margin: 0;
+}
+
+/* ===== Header and menu ===== */
+header {
+  background-color: #1f2a44;
+  color: white;
+  padding: 15px 20px;
+  border-bottom: 6px solid #f5b700;
+}
+
+h1 { margin: 0 0 10px 0; font-size: 22px; }
+
+nav button {
+  background-color: #1f2a44;
+  color: white;
+  border: 1px solid #5b6a8c;
+  padding: 8px 14px;
+  margin: 3px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+nav button:hover { background-color: #f5b700; color: #1f2a44; }
+
+/* ===== Page layout ===== */
+main { width: 92%; margin: 20px auto; }
+
+h2 { color: black; }
+
+.box {
+  background-color: white;
+  border: 1px solid #dde1ea;
+  border-radius: 8px;
+  padding: 15px;
+  margin-bottom: 18px;
+}
+
+/* ===== Forms ===== */
+label { font-weight: bold; font-size: 13px; }
+
+input, select {
+  width: 250px;
+  padding: 8px;
+  margin-top: 4px;
+  border: 1px solid #b8bfce;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+/* ===== Buttons ===== */
+.save {
+  background-color: #1f2a44;
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.edit {
+  background-color: #1f2a44;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.del {
+  background-color: #c62828;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* ===== Tables ===== */
+table { width: 100%; }
+
+th, td { padding: 8px; text-align: left; border: 1px solid #dde1ea; font-size: 14px; }
+
+th { background-color: #fff4cc; }
+
+#statRows td { font-size: 26px; font-weight: bold; text-align: center; }
+
+.empty { color: gray; font-style: italic; }
+
+/* ===== Seat usage bar ===== */
+.bar { background-color: #dde1ea; border-radius: 10px; height: 10px; width: 130px; margin-top: 5px; }
+.fill { background-color: #2e7d32; height: 100%; border-radius: 10px; }
+.fullfill { background-color: #c62828; height: 100%; border-radius: 10px; }
