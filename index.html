@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>School Bus Route Management System</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <h1>School Bus Route Management System</h1>
+    <nav>
+      <button onclick="showPage('dashboard')">Dashboard</button>
+      <button onclick="showPage('routes')">Routes</button>
+      <button onclick="showPage('stops')">Stops</button>
+      <button onclick="showPage('buses')">Buses</button>
+      <button onclick="showPage('drivers')">Drivers</button>
+      <button onclick="showPage('students')">Students</button>
+      <button onclick="showPage('schedule')">Schedule</button>
+    </nav>
+  </header>
+
+  <main>
+
+    <section id="dashboard">
+      <h2>Route Dashboard</h2>
+      <div class="box">
+        <table id="statTable">
+          <thead><tr><th>Routes</th><th>Stops</th><th>Buses</th><th>Drivers</th><th>Students</th></tr></thead>
+          <tbody id="statRows"></tbody>
+        </table>
+      </div>
+      <div class="box">
+        <table>
+          <thead><tr><th>Route</th><th>Bus</th><th>Driver</th><th>Departs</th><th>Seats used</th></tr></thead>
+          <tbody id="dashRows"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="routes">
+      <h2>Routes</h2>
+      <div class="box">
+        <p><label for="routeName">Route name</label><br><input type="text" id="routeName"></p>
+        <p><label for="routeBus">Bus (only active buses)</label><br><select id="routeBus"></select></p>
+        <p><label for="routeStart">Departure time (morning)</label><br><input type="time" id="routeStart"></p>
+        <p><label for="routeEnd">Reaches school (morning)</label><br><input type="time" id="routeEnd"></p>
+        <p><label for="routeDrop">Leaves school (afternoon)</label><br><input type="time" id="routeDrop"></p>
+        <button type="button" class="save" onclick="addRoute()">Save route</button>
+      </div>
+      <div class="box">
+        <table>
+          <thead><tr><th>Route</th><th>Bus</th><th>Departs</th><th>Reaches school</th><th>Leaves school (PM)</th><th>Stops</th><th></th></tr></thead>
+          <tbody id="routeRows"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="stops">
+      <h2>Stops</h2>
+      <div class="box">
+        <p><label for="stopName">Stop name</label><br><input type="text" id="stopName"></p>
+        <p><label for="stopRoute">Route</label><br><select id="stopRoute"></select></p>
+        <p><label for="stopTime">Pickup time</label><br><input type="time" id="stopTime"></p>
+        <button type="button" class="save" onclick="addStop()">Save stop</button>
+      </div>
+      <div class="box">
+        <table>
+          <thead><tr><th>Stop</th><th>Route</th><th>Pickup time</th><th></th></tr></thead>
+          <tbody id="stopRows"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="buses">
+      <h2>Buses</h2>
+      <div class="box">
+        <p><label for="busNumber">Bus number</label><br><input type="text" id="busNumber"></p>
+        <p><label for="busCapacity">Capacity (seats)</label><br><input type="number" id="busCapacity" min="1"></p>
+        <p><label for="busDriver">Driver</label><br><select id="busDriver"></select></p>
+        <p><label for="busStatus">Status</label><br>
+          <select id="busStatus">
+            <option value="Active">Active</option>
+            <option value="Under Maintenance">Under Maintenance</option>
+          </select></p>
+        <button type="button" class="save" onclick="addBus()">Save bus</button>
+      </div>
+      <div class="box">
+        <table>
+          <thead><tr><th>Bus</th><th>Capacity</th><th>Driver</th><th>Status</th><th>Seats used</th><th></th></tr></thead>
+          <tbody id="busRows"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="drivers">
+      <h2>Drivers</h2>
+      <div class="box">
+        <p><label for="driverName">Driver name</label><br><input type="text" id="driverName"></p>
+        <p><label for="driverPhone">Phone (10 digits)</label><br><input type="text" id="driverPhone"></p>
+        <button type="button" class="save" onclick="addDriver()">Save driver</button>
+      </div>
+      <div class="box">
+        <table>
+          <thead><tr><th>Name</th><th>Phone</th><th></th></tr></thead>
+          <tbody id="driverRows"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="students">
+      <h2>Student Assignment</h2>
+      <div class="box">
+        <p><label for="studentName">Student name</label><br><input type="text" id="studentName"></p>
+        <p><label for="studentClass">Class</label><br><input type="text" id="studentClass"></p>
+        <p><label for="studentStop">Stop (the route is chosen with it)</label><br><select id="studentStop"></select></p>
+        <button type="button" class="save" onclick="addStudent()">Save student</button>
+      </div>
+      <div class="box">
+        <table>
+          <thead><tr><th>Student</th><th>Class</th><th>Route</th><th>Stop</th><th></th></tr></thead>
+          <tbody id="studentRows"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="schedule">
+      <h2>Route Schedule</h2>
+      <div class="box" id="scheduleList"></div>
+    </section>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
